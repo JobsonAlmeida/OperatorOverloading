@@ -32,6 +32,8 @@ public:
     bool operator<(const Mystring rhs) const; //overloaded less than operator
     bool operator>(const Mystring rhs) const; //overloaded greater than operator
 
+    Mystring operator-() const; //overloaded unary minus operator
+
 };
 
 #endif // _MYSTRING_H_

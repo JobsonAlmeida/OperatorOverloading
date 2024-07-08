@@ -159,4 +159,22 @@ bool Mystring::operator>(const Mystring rhs) const
     return (std::strcmp(this->str, rhs.str) < 0) ? true : false;
 }
 
+//overloaded unary minus operator
+Mystring Mystring::operator-() const
+{
+    char *buff = new char[std::strlen(str) + 1];
+    std:strcpy(buff, str); 
+
+    for (size_t i = 0; i < std::strlen(buff); i++)
+    {
+        buff[i] = std::tolower(buff[i]);
+    }
+
+    Mystring temp{ buff };
+
+    delete[] buff;
+
+    return temp;
+}
+
 
