@@ -103,5 +103,17 @@ std::istream& operator>>(std::istream& in, Mystring& rhs)
     return in;
 }
 
+// overloaded equal operator
+bool Mystring::operator==(const Mystring &rhs) const
+{
+    return (std::strcmp(this->str, rhs.str)==0);
+}
+
+//// overloaded diference operator
+//bool Mystring::operator!=(const Mystring& rhs) const
+//{
+//    return (std::strcmp(this->str, rhs));
+//}
+
 
 
