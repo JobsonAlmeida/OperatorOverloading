@@ -37,7 +37,7 @@ int main()
     
     Mystring s3{"abcdef"};
     s3 *= 5;
-    cout << s3 << endl;             // abcdefabcdefabcdefabcdefabcdef
+    cout << s3 << endl;             //abcdefabcdefabcdefabcdefabcdef
     /*
     Mystring s = "Frank";
     ++s;
