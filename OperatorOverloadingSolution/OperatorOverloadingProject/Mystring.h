@@ -26,8 +26,11 @@ public:
     bool operator==(const Mystring &rhs) const;  //equal overloaded operator
     bool operator!=(const Mystring& rhs) const;  // overloaded difference operator
 
-    Mystring& operator=(const Mystring& rhs);    //overloaded copy assignment operator
-    Mystring& operator=(Mystring&& rhs);   //overloaded move assignment operator
+    Mystring& operator=(const Mystring& rhs);   //overloaded copy assignment operator
+    Mystring& operator=(Mystring&& rhs);        //overloaded move assignment operator
+
+    bool operator<(const Mystring rhs) const; //overloaded less than operator
+    bool operator>(const Mystring rhs) const; //overloaded greater than operator
 
 };
 

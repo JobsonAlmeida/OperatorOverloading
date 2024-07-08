@@ -147,4 +147,16 @@ Mystring& Mystring::operator=(Mystring&& rhs)
 
 }
 
+//overloaded less than operator
+bool Mystring::operator<(const Mystring rhs) const
+{
+    return (std::strcmp(this->str, rhs.str) < 0) ? true : false;
+}
+
+//overloaded greater than operator
+bool Mystring::operator>(const Mystring rhs) const
+{
+    return (std::strcmp(this->str, rhs.str) < 0) ? true : false;
+}
+
 

@@ -7,22 +7,20 @@ using namespace std;
 
 int main()
 {
-    
-
     cout << boolalpha << endl;
     Mystring a {"frank"};
     Mystring b {"frank"};
 
-    cout << (a==b) << endl;         // true
-    cout << (a!=b) << endl;          // false
+    cout << (a==b) << endl;   // true
+    cout << (a!=b) << endl;   // false
 
-    b = "george"; /*
+    b = "george"; 
 
     cout << (a==b) << endl;         // false
     cout << (a!=b) << endl;          // true
-     cout << (a<b) << endl;          // true
+    cout << (a<b) << endl;          // true
     cout << (a>b) << endl;           // false
-
+    /*
     Mystring s1 {"FRANK"};
     s1 = -s1;
     cout << s1 << endl;               // frank
