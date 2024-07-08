@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Mystring.h"
+#include <string>
 
 // No-args constructor
 Mystring::Mystring()
@@ -134,11 +135,13 @@ Mystring& Mystring::operator=(const Mystring& rhs)
 }
 
 //overloaded move assignment operator
-Mystring& Mystring::operator=(Mystring&& rhs)
+Mystring& Mystring::operator=(Mystring&& rhs) noexcept
 {
+    std::cout << "Move assignment operator called\n";
+
     if (this == &rhs) { return *this; }
 
-    delete[] str;
+    delete[] str; //THE PROGRAM STOPS HERE
 
     str = rhs.str;
     rhs.str = nullptr;
@@ -194,13 +197,36 @@ Mystring Mystring::operator+(const Mystring& rhs)
 
 }
 
+//overloaded plus equal operator
 Mystring Mystring::operator+=(const Mystring& rhs)
 {
     char* buff = new char[std::strlen(str) + std::strlen(rhs.str) + 1];
     std::strcpy(buff, str);
     std::strcat(buff, rhs.str);
 
-    std::strcpy(str, buff);
+    delete[] str; //IF NOT PRESENT, CAUSES THE PROGRAM STOPS AHEAD WHEN THE DELETE OPERATION IS APPLIED AGAIN OVER STR OF THE SAME OBJECT. 
+
+    std::strcpy(str, buff); //it's probable this function strcpy uses the pointer str to allocate memory in the heap. Therefore,
+                            //if we don't deallocate the memory the str was pointer the memory remains allocated when the strcpy
+                            //changes the addres inside the str pointer.  
+
+    Mystring temp{ buff };
+
+    delete[] buff;
+
+    return temp;
+}
+
+//overloaded times operator 
+Mystring Mystring::operator*(int n)
+{
+    char* buff = new char[std::strlen(str)*n + 1];
+
+    std::strcpy(buff, str);
+    for (size_t i = 2; i <= n; i++)
+    {
+        std::strcat(buff, str);
+    }
 
     Mystring temp{ buff };
 
