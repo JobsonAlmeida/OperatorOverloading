@@ -177,4 +177,23 @@ Mystring Mystring::operator-() const
     return temp;
 }
 
+//overloaded unary plus operator
+Mystring Mystring::operator+(const Mystring& rhs)
+{
+    size_t buff_size = std::strlen(str) + std::strlen(rhs.str) + 1;
+    char* buff = new char[buff_size];
+
+    std::strcpy(buff, str);
+    std::strcat(buff, rhs.str);
+
+    Mystring temp{ buff };
+
+    delete[] buff;
+
+    return temp;
+
+}
+
+
+
 

@@ -33,6 +33,7 @@ public:
     bool operator>(const Mystring rhs) const; //overloaded greater than operator
 
     Mystring operator-() const; //overloaded unary minus operator
+    Mystring operator+(const Mystring &rhs);       //overloaded unary plus operator
 
 };
 
