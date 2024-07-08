@@ -194,6 +194,21 @@ Mystring Mystring::operator+(const Mystring& rhs)
 
 }
 
+Mystring Mystring::operator+=(const Mystring& rhs)
+{
+    char* buff = new char[std::strlen(str) + std::strlen(rhs.str) + 1];
+    std::strcpy(buff, str);
+    std::strcat(buff, rhs.str);
+
+    std::strcpy(str, buff);
+
+    Mystring temp{ buff };
+
+    delete[] buff;
+
+    return temp;
+}
+
 
 
 

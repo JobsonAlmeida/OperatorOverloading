@@ -34,6 +34,7 @@ public:
 
     Mystring operator-() const; //overloaded unary minus operator
     Mystring operator+(const Mystring &rhs);       //overloaded unary plus operator
+    Mystring operator+=(const Mystring& rhs);      //overloaded puls iqual operator
 
 };
 
