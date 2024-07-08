@@ -24,7 +24,9 @@ public:
     const char* get_str() const;
 
     bool operator==(const Mystring &rhs) const;  //equal overloaded operator
-    //bool operator!=(const Mystring& rhs) const;
+
+    bool operator!=(const Mystring& rhs) const;  // overloaded difference operator
+
 };
 
 #endif // _MYSTRING_H_

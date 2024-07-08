@@ -109,11 +109,11 @@ bool Mystring::operator==(const Mystring &rhs) const
     return (std::strcmp(this->str, rhs.str)==0);
 }
 
-//// overloaded diference operator
-//bool Mystring::operator!=(const Mystring& rhs) const
-//{
-//    return (std::strcmp(this->str, rhs));
-//}
+// overloaded difference operator
+bool Mystring::operator!=(const Mystring& rhs) const
+{
+    return (std::strcmp(this->str, rhs.str)!=0);
+}
 
 
 
