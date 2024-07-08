@@ -15,8 +15,8 @@ public:
     Mystring(Mystring&& source);                        // Move constructor
     ~Mystring();                                        // Destructor
 
-    Mystring& operator=(const Mystring& rhs);     // Copy assignment
-    Mystring& operator=(Mystring&& rhs);          // Move assignment
+    //Mystring& operator=(const Mystring& rhs);     // Copy assignment
+    //Mystring& operator=(Mystring&& rhs);          // Move assignment
 
     void display() const;
 
@@ -24,8 +24,10 @@ public:
     const char* get_str() const;
 
     bool operator==(const Mystring &rhs) const;  //equal overloaded operator
-
     bool operator!=(const Mystring& rhs) const;  // overloaded difference operator
+
+    Mystring& operator=(const Mystring& rhs);    //overloaded copy assignment operator
+    Mystring& operator=(Mystring&& rhs);   //overloaded move assignment operator
 
 };
 

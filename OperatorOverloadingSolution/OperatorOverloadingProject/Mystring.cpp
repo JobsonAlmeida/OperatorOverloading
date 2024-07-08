@@ -50,30 +50,30 @@ Mystring::~Mystring()
     delete[] str;
 }
 
-// Copy assignment
-Mystring& Mystring::operator=(const Mystring& rhs)
-{
-    //    std::cout << "Using copy assignment" << std::endl;
+//// Copy assignment
+//Mystring& Mystring::operator=(const Mystring& rhs)
+//{
+//    //    std::cout << "Using copy assignment" << std::endl;
+//
+//    if (this == &rhs)
+//        return *this;
+//    delete[] str;
+//    str = new char[strlen(rhs.str) + 1];
+//    strcpy(str, rhs.str);
+//    return *this;
+//}
 
-    if (this == &rhs)
-        return *this;
-    delete[] str;
-    str = new char[strlen(rhs.str) + 1];
-    strcpy(str, rhs.str);
-    return *this;
-}
-
-// Move assignment
-Mystring& Mystring::operator=(Mystring&& rhs)
-{
-    //   std::cout << "Using move assignment" << std::endl;
-    if (this == &rhs)
-        return *this;
-    delete[] str;
-    str = rhs.str;
-    rhs.str = nullptr;
-    return *this;
-}
+//// Move assignment
+//Mystring& Mystring::operator=(Mystring&& rhs)
+//{
+//    //   std::cout << "Using move assignment" << std::endl;
+//    if (this == &rhs)
+//        return *this;
+//    delete[] str;
+//    str = rhs.str;
+//    rhs.str = nullptr;
+//    return *this;
+//}
 
 
 // Display method
@@ -115,5 +115,36 @@ bool Mystring::operator!=(const Mystring& rhs) const
     return (std::strcmp(this->str, rhs.str)!=0);
 }
 
+
+
+//overloaded copy assignment operator
+Mystring& Mystring::operator=(const Mystring& rhs)
+{
+    if (this == &rhs)
+    {
+        return *this;
+    }
+
+    delete[] str;
+
+    str = new char[std::strlen(rhs.str) + 1];
+    std::strcpy(str, rhs.str);
+
+    return *this;
+}
+
+//overloaded move assignment operator
+Mystring& Mystring::operator=(Mystring&& rhs)
+{
+    if (this == &rhs) { return *this; }
+
+    delete[] str;
+
+    str = rhs.str;
+    rhs.str = nullptr;
+
+    return *this;
+
+}
 
 
