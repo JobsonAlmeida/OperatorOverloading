@@ -36,7 +36,7 @@ public:
     Mystring operator+(const Mystring &rhs);       //overloaded unary plus operator
     Mystring operator+=(const Mystring& rhs);      //overloaded puls iqual operator
     Mystring operator*(int n);  //overloaded times operator 
-
+    Mystring operator*=(int n); //overloaded times equal operator
 
 };
 

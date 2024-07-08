@@ -235,6 +235,28 @@ Mystring Mystring::operator*(int n)
     return temp;
 }
 
+//overloaded times equal operator
+Mystring Mystring::operator*=(int n)
+{
+    char* buff = new char[std::strlen(str) * n + 1];
+
+    std::strcpy(buff, str);
+    for (size_t i = 2; i <= n; i++)
+    {
+        std::strcat(buff, str);
+    }
+
+    delete[] str;
+
+    std::strcpy(str, buff);
+
+    Mystring temp{ buff };
+
+    delete[] buff;
+
+    return temp;
+}
+
 
 
 
