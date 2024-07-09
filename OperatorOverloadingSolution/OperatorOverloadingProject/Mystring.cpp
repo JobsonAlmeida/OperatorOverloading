@@ -202,10 +202,10 @@ Mystring Mystring::operator+=(const Mystring& rhs)
 {
     Mystring temp = this->operator+(rhs);
 
-    size_t buff_size = std::strlen(temp.str) + 1;
-    
     delete[] str;
+    size_t buff_size = std::strlen(temp.str) + 1;  
     str = new char[buff_size];
+
     std::strcpy(str, temp.str);
 
     return temp;
@@ -256,6 +256,8 @@ Mystring Mystring::operator*=(int n)
     Mystring temp = this->operator*(n);
 
     delete[] str;
+    size_t buff_size = std::strlen(temp.str) + 1;    
+    str = new char[buff_size];
 
     std::strcpy(str, temp.str);
 
