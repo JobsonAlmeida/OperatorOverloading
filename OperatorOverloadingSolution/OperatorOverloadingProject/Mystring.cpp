@@ -141,7 +141,7 @@ Mystring& Mystring::operator=(Mystring&& rhs) noexcept
 
     if (this == &rhs) { return *this; }
 
-    delete[] str; //THE PROGRAM STOPS HERE
+    delete[] this->str; //THE PROGRAM STOPS HERE
 
     str = rhs.str;
     rhs.str = nullptr;
@@ -200,21 +200,34 @@ Mystring Mystring::operator+(const Mystring& rhs)
 //overloaded plus equal operator
 Mystring Mystring::operator+=(const Mystring& rhs)
 {
-    char* buff = new char[std::strlen(str) + std::strlen(rhs.str) + 1];
+
+    /* Mystring temp = this->operator+(rhs);
+
+    delete[] str;
+
+    std::strcpy(str, temp.str);
+
+    return temp;*/
+
+    size_t buff_size = std::strlen(str) + std::strlen(rhs.str) + 1;
+    char* buff = new char[buff_size];
     std::strcpy(buff, str);
     std::strcat(buff, rhs.str);
 
-    delete[] str; //IF NOT PRESENT, CAUSES THE PROGRAM STOPS AHEAD WHEN THE DELETE OPERATION IS APPLIED AGAIN OVER STR OF THE SAME OBJECT. 
+    //int strLength = sizeof(this->str) / sizeof(char); 
+    delete[] str; // HERE WE ARE DEALLOCATING THE MEMORY POINTED BY STR BECAUSE WE ARE GOING TO ALLOCATE ANOTHER MEMORY LENGTH. WE HAVE DEALLOCATED STR, BUT WE HAVE ITS PREVIOUSLY LENGHT IN THE strLenght VARIABLE. 
 
-    std::strcpy(str, buff); //it's probable this function strcpy uses the pointer str to allocate memory in the heap. Therefore,
-                            //if we don't deallocate the memory the str was pointer the memory remains allocated when the strcpy
-                            //changes the addres inside the str pointer.  
+    str = new char[buff_size]; //IF NOT PRESENT, CAUSES THE PROGRAM STOPS AHEAD WHEN THE DELETE OPERATION IS APPLIED AGAIN OVER STR OF THE SAME OBJECT. THE REASON IS BECAUSE WE HAVE PREVIOUSLY WE DEALLOCATED THE MEMORY TO WHICH STR POINTS. SO THE STR IS POINTING TO LOCAL MEMORY NO SECURITY AND ACCONDING TO THE CODE BELOW WE ARE COPING THE CONTENT OF THE BUFF TO THE LOCAL WHERE STR IS POINTING (WHICH IS NOT A SECURITY AREA). SO, IN ANY PLACE AHEAD IN THE CODE WHEN WE TRY TO DEALLOCATE THE AREA TO WHICH STR IS POINTING WE HAVE AN EXCEPTION BECAUSE THAT IS NOT AN ALLOCATED SPACE OF MEMORY. 
+
+    //IF BOTH THE CODES ABOVE DELETE STR AND STR = NEW CHAR[...] ARE NOT PRESENT IN THE CODE WE ARE ALSO HAVE PROBLEMS IN THE FUTURE DUE TO THE MEMORY ALLOCATION. THE IS IS THAT STR IS POINTIN TO A SPACE OF MEMORY LESS THAT THE SPACE OF THE MEMORY POINTED BY BUFF. THEREFORE, WHEN THE STRCPY FUNCTION BELLOW IS EXECUTED AND THE CONTENTE FROM BUFF IS COPIED TO THE SPACE OF MEMORY POINTED BY STR, THE SPACE OF MEMROY POINTED BY STR DON'T HAVE ENOUGH SPACE TO HOLD ALL THE CONTENTE AND THEREFORE SOME DATA IS GOING TO LEAK FROM THE SPACE OF THE MEMORY POINTED BY STR. 
+
+    std::strcpy(str, buff); // THIS FUNCTION JUST COPIES THE CONTENT POINTER BY BUFF TO THE MEMORY AREA PONTED BY STR. IT DOESN'T CHECK IF THE STR IS POINTING TO A SECURY SPACE OF MEMORY, AND DOESN'T MATTER IF THE STR IS NOT POITING TO A SECURY MEMORY AREA, THE STRCPY FUNCTION COPIES ANYWAY.    
 
     Mystring temp{ buff };
 
     delete[] buff;
 
-    return temp;
+    return temp;   
 }
 
 //overloaded times operator 
