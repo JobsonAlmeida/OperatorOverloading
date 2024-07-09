@@ -60,7 +60,8 @@ int main()
     result = s++;
     cout << s << endl;                  // FRANK
     cout << result << endl;           // frank
-        
+
+    
     return 0;
 }
 

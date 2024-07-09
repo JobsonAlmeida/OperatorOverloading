@@ -135,7 +135,7 @@ Mystring& Mystring::operator=(const Mystring& rhs)
 }
 
 //overloaded move assignment operator
-Mystring& Mystring::operator=(Mystring&& rhs) noexcept
+Mystring& Mystring::operator=(Mystring&& rhs)
 {
     std::cout << "Move assignment operator called\n";
 

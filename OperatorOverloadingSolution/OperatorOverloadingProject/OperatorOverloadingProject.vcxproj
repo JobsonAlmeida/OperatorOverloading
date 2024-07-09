@@ -24,7 +24,7 @@
     <ProjectGuid>{5bae2430-1c87-4a2b-9143-d92e1dfa8c2d}</ProjectGuid>
     <RootNamespace>OperatorOverloadingProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>OperatorOverloading_MemberMethodsProject5</ProjectName>
+    <ProjectName>OperatorOverloading_MemberMethodsProject6</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
