@@ -265,6 +265,17 @@ Mystring Mystring::operator*=(int n)
 
 }
 
+//overloaded pre-increment operator
+Mystring& Mystring::operator++()
+{
+    for (size_t i = 0; i < std::strlen(str); i++)
+    {
+        str[i] = std::toupper(str[i]);
+    }
+
+    return *this;
+}
+
 
 
 

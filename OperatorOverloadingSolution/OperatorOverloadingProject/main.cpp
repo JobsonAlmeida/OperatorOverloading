@@ -38,7 +38,7 @@ int main()
     Mystring s3{"abcdef"};
     s3 *= 5;
     cout << s3 << endl;             //abcdefabcdefabcdefabcdefabcdef
-    /*
+    
     Mystring s = "Frank";
     ++s;
     cout << s << endl;                  // FRANK
@@ -50,7 +50,7 @@ int main()
     result = ++s;
     cout << s << endl;                  // FRANK
     cout << result << endl;           // FRANK
-
+    /*
     s = "Frank";
     s++;
     cout << s << endl;                  // FRANK

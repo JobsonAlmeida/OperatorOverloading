@@ -33,10 +33,11 @@ public:
     bool operator>(const Mystring rhs) const; //overloaded greater than operator
 
     Mystring operator-() const; //overloaded unary minus operator
-    Mystring operator+(const Mystring &rhs);       //overloaded unary plus operator
-    Mystring operator+=(const Mystring& rhs);      //overloaded puls iqual operator
+    Mystring operator+(const Mystring &rhs);       //overloaded plus operator
+    Mystring operator+=(const Mystring& rhs);      //overloaded plus iqual operator
     Mystring operator*(int n);  //overloaded times operator 
     Mystring operator*=(int n); //overloaded times equal operator
+    Mystring& operator++(); //overloaded pre-increment operator
 
 };
 
