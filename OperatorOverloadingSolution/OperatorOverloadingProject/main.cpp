@@ -50,7 +50,7 @@ int main()
     result = ++s;
     cout << s << endl;                  // FRANK
     cout << result << endl;           // FRANK
-    /*
+    
     s = "Frank";
     s++;
     cout << s << endl;                  // FRANK
@@ -61,7 +61,7 @@ int main()
     cout << s << endl;                  // FRANK
     cout << result << endl;           // frank
 
-    */
+    
     return 0;
 }
 

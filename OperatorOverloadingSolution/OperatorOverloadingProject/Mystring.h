@@ -38,6 +38,7 @@ public:
     Mystring operator*(int n);  //overloaded times operator 
     Mystring operator*=(int n); //overloaded times equal operator
     Mystring& operator++(); //overloaded pre-increment operator
+    Mystring operator++(int); //overloaded post-increment operator
 
 };
 

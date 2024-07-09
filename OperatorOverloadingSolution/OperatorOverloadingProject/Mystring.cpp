@@ -276,6 +276,15 @@ Mystring& Mystring::operator++()
     return *this;
 }
 
+//overloaded post-increment operator
+Mystring Mystring::operator++(int)
+{
+    Mystring temp{ *this };
+
+    this->operator++();
+
+    return temp;
+}
 
 
 
