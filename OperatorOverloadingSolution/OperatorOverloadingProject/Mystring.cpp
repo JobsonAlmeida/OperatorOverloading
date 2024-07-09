@@ -200,15 +200,17 @@ Mystring Mystring::operator+(const Mystring& rhs)
 //overloaded plus equal operator
 Mystring Mystring::operator+=(const Mystring& rhs)
 {
+    Mystring temp = this->operator+(rhs);
 
-    /* Mystring temp = this->operator+(rhs);
-
+    size_t buff_size = std::strlen(temp.str) + 1;
+    
     delete[] str;
-
+    str = new char[buff_size];
     std::strcpy(str, temp.str);
 
-    return temp;*/
+    return temp;
 
+    /*
     size_t buff_size = std::strlen(str) + std::strlen(rhs.str) + 1;
     char* buff = new char[buff_size];
     std::strcpy(buff, str);
@@ -227,7 +229,7 @@ Mystring Mystring::operator+=(const Mystring& rhs)
 
     delete[] buff;
 
-    return temp;   
+    return temp;  */ 
 }
 
 //overloaded times operator 
